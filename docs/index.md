@@ -1,6 +1,6 @@
 # Supplementary material
 
-More audio examples **coming soon**!
+More (and better-quality) audio examples **coming soon**!
 
 ## Reconstructions
 
@@ -101,3 +101,22 @@ Here, we show some *non-cherry-picked* examples of the partial generations obtai
 | 1 | <audio src="audio/gen-var/bass/1.wav" controls style="width:  200px"></audio> | <audio src="audio/gen-var/bass/1_gen.wav" controls style="width:  200px"></audio> |
 | 2 | <audio src="audio/gen-var/bass/2.wav" controls style="width:  200px"></audio> | <audio src="audio/gen-var/bass/2_gen.wav" controls style="width:  200px"></audio> |
 | 3 | <audio src="audio/gen-var/bass/3.wav" controls style="width:  200px"></audio> | <audio src="audio/gen-var/bass/3_gen.wav" controls style="width:  200px"></audio> |
+
+## Generations with composed models
+
+Here, we show some *non-cherry-picked* examples of the generations obtained by composing a bass and a piano model on the Slakh2100 test set. We keep the drums from the original data and generate the bass given the drums and the piano given the bass, following the formulation described in the section 5.2 of the manuscript. **Warning**: lower the volume before playing the audio files, as they may be loud.
+
+|   | Real                                                                                          | Generated                                                                                     |
+|---|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| 1 | <audio src="audio/multi-models/real-1.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-1.wav" controls style="width:  200px"></audio> |
+| 2 | <audio src="audio/multi-models/real-2.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-2.wav" controls style="width:  200px"></audio> |
+| 3 | <audio src="audio/multi-models/real-3.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-3.wav" controls style="width:  200px"></audio> |
+| 4 | <audio src="audio/multi-models/real-4.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-4.wav" controls style="width:  200px"></audio> |
+| 5 | <audio src="audio/multi-models/real-5.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-5.wav" controls style="width:  200px"></audio> |
+| 6 | <audio src="audio/multi-models/real-6.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-6.wav" controls style="width:  200px"></audio> |
+| 7 | <audio src="audio/multi-models/real-7.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-7.wav" controls style="width:  200px"></audio> |
+| 8 | <audio src="audio/multi-models/real-8.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-8.wav" controls style="width:  200px"></audio> |
+| 9 | <audio src="audio/multi-models/real-9.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-9.wav" controls style="width:  200px"></audio> |
+| 10 | <audio src="audio/multi-models/real-10.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-10.wav" controls style="width:  200px"></audio> |
+| 11 | <audio src="audio/multi-models/real-11.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-11.wav" controls style="width:  200px"></audio> |
+| 12 | <audio src="audio/multi-models/real-12.wav" controls style="width:  200px"></audio> | <audio src="audio/multi-models/gen-12.wav" controls style="width:  200px"></audio> |
