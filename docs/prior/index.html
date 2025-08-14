@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prior – Method 1 (Ch. 5)</title>
+  <link href="https://cdn.jsdelivr.net/npm/modern-css-reset/reset.min.css" rel="stylesheet">
+  <style>
+    :root { --ink:#0f172a; --muted:#64748b; --head:#334155; --bg:#f8fafc; --note-bg:#f8fafc; --note-border:#cbd5e1; }
+    body { background: var(--bg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--ink); }
+    header { background: linear-gradient(180deg,#4338ca,#4f46e5); color: #fff; padding: 1rem; }
+    header .bar { max-width: 1100px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; }
+    header h1 { margin:0; font-size:1.35rem; }
+    header a.home { color:#fff; text-decoration:none; background:rgba(255,255,255,.15); padding:.5rem .75rem; border-radius:10px; }
+    header a.home:hover { background:rgba(255,255,255,.25); }
+
+    main { max-width: 1100px; margin: 1.25rem auto 2rem; background: #fff; padding: 1.25rem 1.25rem 2rem; border-radius: 14px; box-shadow: 0 8px 18px rgba(15,23,42,0.08); }
+    .notice { background: var(--note-bg); border: 1px solid var(--note-border); border-radius: 12px; padding: .75rem .9rem; margin-bottom: 1rem; color:#334155; }
+
+    h2 { margin: 1rem 0; color: var(--head); font-size:1.2rem; }
+    .run-section { margin-bottom: 1.2rem; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; background:#fff; box-shadow:0 6px 14px rgba(15,23,42,.06); }
+    .run-header { background: #f1f5f9; padding: 0.75rem 1rem; cursor: pointer; display: flex; align-items: center; }
+    .run-header:hover { background: #e2e8f0; }
+    .toggle-icon { margin-right: 0.5rem; transition: transform 0.2s; }
+    .collapsed .toggle-icon { transform: rotate(-90deg); }
+    .run-title { font-size: 1.05rem; color: #334155; }
+    .run-title strong { font-weight: 800; }
+    .run-content { display: none; padding: 1rem; background: #fff; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #e2e8f0; padding: 8px; text-align: center; }
+    th { background: #f8fafc; }
+    audio { width: 130px; }
+    .group-spacer { margin: 1.25rem 0 .5rem; border-top: 2px dashed #e5e7eb; padding-top: .75rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <h1>Prior – Method 1 <span>(Ch. 5)</span></h1>
+      <a class="home" href="../index.html">← Home</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice">
+      <strong>Note:</strong> this page displays a <em>non-cherry-picked</em> subset of examples (sampled on load).
+      More sounds will be added soon. Please lower your system volume before playback.
+    </div>
+
+    <h2>DB EnCodec Masking Prior</h2>
+    
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass - variant = c - p_drop = 0.2 - encodec</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>1716</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1716.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1716.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1716.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2187</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_2187.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_2187.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_2187.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3113</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_3113.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_3113.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_3113.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1332</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1332.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1332.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1332.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3032</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_3032.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_3032.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_3032.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass - variant = c - p_drop = 0.5 - encodec</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>260</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_260.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_260.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_260.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>204</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_204.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_204.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_204.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>712</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_712.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_712.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_712.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2006</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_2006.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_2006.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_2006.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1828</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1828.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1828.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1828.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass - variant = c - p_drop = 0.8 - encodec</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>1628</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1628.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1628.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1628.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1805</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1805.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1805.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1805.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3679</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_3679.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_3679.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_3679.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>244</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_244.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_244.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_244.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3436</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_3436.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_3436.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_c_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_3436.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass - variant = d - p_drop = 0.2 - encodec</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>2757</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_2757.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_2757.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_2757.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>837</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_837.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_837.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_837.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1763</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1763.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1763.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1763.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1273</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1273.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1273.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1273.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1307</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1307.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1307.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.2,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1307.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass - variant = d - p_drop = 0.5 - encodec</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>792</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_792.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_792.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_792.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>759</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_759.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_759.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_759.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>355</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_355.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_355.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_355.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2166</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_2166.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_2166.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_2166.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3112</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_3112.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_3112.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.5,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_3112.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass - variant = d - p_drop = 0.8 - encodec</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>2401</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_2401.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_2401.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_2401.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2962</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_2962.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_2962.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_2962.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1575</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_1575.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_1575.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_1575.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>375</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_375.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_375.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_375.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>569</td>
+                <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/decomp/reals/real_569.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_0/gen_569.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/ardbeg/prior/masking_d_(0.8,)_slakh_db_encodec_prior_iadb_2.gin/partial_generations/comp_1/gen_569.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    
+
+    <h2>DBP Music2Latent Masking Prior</h2>
+    
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass + piano - variant = 0.2 - p_drop = c - music2latent</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+                  <th>Component 2</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>1631</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1631.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1631.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1631.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1631.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1207</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1207.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1207.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1207.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1207.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3730</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3730.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3730.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3730.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3730.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>596</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_596.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_596.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_596.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_596.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2005</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_2005.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_2005.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_2005.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_2005.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass + piano - variant = 0.2 - p_drop = d - music2latent</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+                  <th>Component 2</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>2271</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_2271.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_2271.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_2271.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_2271.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1959</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1959.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1959.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1959.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1959.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>4270</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_4270.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_4270.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_4270.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_4270.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2123</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_2123.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_2123.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_2123.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_2123.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2025</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_2025.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_2025.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_2025.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.2_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_2025.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass + piano - variant = 0.5 - p_drop = c - music2latent</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+                  <th>Component 2</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>1721</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1721.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1721.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1721.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1721.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3809</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3809.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3809.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3809.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3809.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1750</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1750.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1750.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1750.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1750.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3619</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3619.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3619.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3619.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3619.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass + piano - variant = 0.5 - p_drop = d - music2latent</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+                  <th>Component 2</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>3806</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3806.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3806.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3806.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3806.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>4243</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_4243.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_4243.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_4243.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_4243.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>2041</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_2041.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_2041.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_2041.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_2041.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>994</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_994.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_994.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_994.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_994.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3739</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3739.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3739.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3739.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.5_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3739.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass + piano - variant = 0.8 - p_drop = c - music2latent</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+                  <th>Component 2</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>2465</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_2465.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_2465.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_2465.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_2465.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3105</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3105.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3105.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3105.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3105.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>4541</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_4541.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_4541.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_4541.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_4541.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1571</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1571.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1571.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1571.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1571.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>3444</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_3444.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_3444.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_3444.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_c_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_3444.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="run-section collapsed">
+        <div class="run-header" onclick="toggleRun(this)">
+          <span class="toggle-icon">▶</span>
+          <span class="run-title">drums + bass + piano - variant = 0.8 - p_drop = d - music2latent</span>
+        </div>
+        <div class="run-content">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Real</th>
+                
+                  <th>Component 0</th>
+                
+                  <th>Component 1</th>
+                
+                  <th>Component 2</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>1792</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1792.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1792.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1792.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1792.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1208</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1208.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1208.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1208.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1208.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>4049</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_4049.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_4049.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_4049.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_4049.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>1592</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_1592.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_1592.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_1592.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_1592.wav"></audio></td>
+                  
+                
+              </tr>
+              
+              <tr>
+                <td>873</td>
+                <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/decomp/reals/real_873.wav"></audio></td>
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_0/gen_873.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_1/gen_873.wav"></audio></td>
+                  
+                
+                  
+                    <td><audio controls src="/assets/sony_prior/masking_gt_0.8_d_slakh_dbp_sony_prior_iadb_gt_3.gin/partial_generations/comp_2/gen_873.wav"></audio></td>
+                  
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    
+  </main>
+
+  <script>
+    function toggleRun(headerEl) {
+      const section = headerEl.parentElement;
+      const content = section.querySelector('.run-content');
+      const icon = headerEl.querySelector('.toggle-icon');
+      const opening = content.style.display !== 'block';
+      content.style.display = opening ? 'block' : 'none';
+      section.classList.toggle('collapsed', !opening);
+      icon.textContent = opening ? '▼' : '▶';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.run-title').forEach(span => {
+        if (span.innerHTML.includes('<strong>')) return;
+        const parts = span.textContent.split(/(\s[-|]\s)/);
+        const out = parts.map(p => {
+          if (p.trim().includes('=') && !/^\s[-|]\s$/.test(p)) {
+            const idx = p.indexOf('=');
+            if (idx === -1) return p;
+            const key = p.slice(0, idx + 1);
+            const val = p.slice(idx + 1).trim();
+            return key + ' ' + '<strong>' + val + '</strong>';
+          }
+          return p;
+        }).join('');
+        span.innerHTML = out;
+      });
+    });
+  </script>
+</body>
+</html>

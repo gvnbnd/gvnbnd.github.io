@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prior – Method 2 (Ch. 5)</title>
+  <link href="https://cdn.jsdelivr.net/npm/modern-css-reset/reset.min.css" rel="stylesheet">
+  <style>
+    :root { --ink:#0f172a; --head:#7c2d12; --bg:#fff7ed; --note-bg:#fffaf0; --note-border:#f4e7d1; }
+    body { background: var(--bg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--ink); }
+    header { background: linear-gradient(180deg,#b45309,#d97706); color:#fff; padding:1rem; }
+    header .bar { max-width: 1000px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; }
+    header h1 { margin:0; font-size:1.25rem; }
+    header a.home { color:#fff; text-decoration:none; background:rgba(255,255,255,.15); padding:.5rem .75rem; border-radius:10px; }
+    header a.home:hover { background:rgba(255,255,255,.25); }
+
+    main { max-width: 1000px; margin: 1.25rem auto 2rem; background:#fff; padding: 1.25rem 1.25rem 2rem; border-radius: 14px; box-shadow: 0 8px 18px rgba(15,23,42,.08); }
+    .notice { background: var(--note-bg); border: 1px solid var(--note-border); border-radius: 12px; padding: .75rem .9rem; margin-bottom: 1rem; color:#7c2d12; }
+
+    h2 { margin: 1rem 0 .5rem; color: var(--head); font-size:1.15rem; }
+    .section { margin-bottom: 1.5rem; border:1px solid #f4e7d1; border-radius: 10px; overflow:hidden; }
+    .sec-head { background:#fff3e0; padding:.75rem 1rem; display:flex; align-items:center; justify-content:space-between; cursor:pointer; }
+    .sec-head .toggle { margin-right:.5rem; transition: transform .2s; }
+    .collapsed .toggle { transform: rotate(-90deg); }
+    .sec-body { display:none; padding:1rem; background:#fff; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #f1f5f9; padding: 8px; text-align: center; }
+    th { background: #f8fafc; }
+    tr:hover { background:#fffaf0; }
+    audio { width: 160px; }
+    .muted { color:#9aa3af; }
+    .controls { display:flex; gap:.5rem; margin-bottom:.75rem; }
+    .btn { padding:.5rem .75rem; border:1px solid #f4e7d1; border-radius:10px; background:#fffaf0; cursor:pointer; }
+    .btn:hover { background:#fff3e0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <h1>Prior – Method 2 <span style="opacity:.9;">(Ch. 5)</span></h1>
+      <a class="home" href="../index.html">← Home</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice">
+      <strong>Note:</strong> this page loads a <em>non-cherry-picked</em> subset of examples.
+      <u>More data will be added soon</u> as experiments progress. Please lower your system volume before playback.
+    </div>
+
+    <div class="controls">
+      <button class="btn" onclick="expandAll()">Expand All</button>
+      <button class="btn" onclick="collapseAll()">Collapse All</button>
+    </div>
+
+    <div class="section collapsed" id="sec-uncond">
+      <div class="sec-head" onclick="toggleSec('sec-uncond')">
+        <span class="toggle">▶</span>
+        <h2 style="margin:0;">Unconditional</h2>
+      </div>
+      <div class="sec-body">
+        
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Generated (Unconditional)</th></tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>102</td>
+                <td><audio controls src="/assets/prior_m2/generated_uncond/generated_mix_102.wav"></audio></td>
+              </tr>
+              
+              <tr>
+                <td>108</td>
+                <td><audio controls src="/assets/prior_m2/generated_uncond/generated_mix_108.wav"></audio></td>
+              </tr>
+              
+              <tr>
+                <td>122</td>
+                <td><audio controls src="/assets/prior_m2/generated_uncond/generated_mix_122.wav"></audio></td>
+              </tr>
+              
+              <tr>
+                <td>130</td>
+                <td><audio controls src="/assets/prior_m2/generated_uncond/generated_mix_130.wav"></audio></td>
+              </tr>
+              
+              <tr>
+                <td>356</td>
+                <td><audio controls src="/assets/prior_m2/generated_uncond/generated_mix_356.wav"></audio></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    </div>
+
+    <div class="section collapsed" id="sec-aligned">
+      <div class="sec-head" onclick="toggleSec('sec-aligned')">
+        <span class="toggle">▶</span>
+        <h2 style="margin:0;">Aligned — Real vs Generated</h2>
+      </div>
+      <div class="sec-body">
+        
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Real Mix</th><th>Generated (Aligned)</th></tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>102</td>
+                <td><audio controls src="/assets/prior_m2/real_audio/real_mix_102.wav"></audio></td>
+                <td>
+                  
+                    <audio controls src="/assets/prior_m2/generated_aligned_audio/generated_aligned_mix_102.wav"></audio>
+                  
+                </td>
+              </tr>
+              
+              <tr>
+                <td>108</td>
+                <td><audio controls src="/assets/prior_m2/real_audio/real_mix_108.wav"></audio></td>
+                <td>
+                  
+                    <audio controls src="/assets/prior_m2/generated_aligned_audio/generated_aligned_mix_108.wav"></audio>
+                  
+                </td>
+              </tr>
+              
+              <tr>
+                <td>122</td>
+                <td><audio controls src="/assets/prior_m2/real_audio/real_mix_122.wav"></audio></td>
+                <td>
+                  
+                    <audio controls src="/assets/prior_m2/generated_aligned_audio/generated_aligned_mix_122.wav"></audio>
+                  
+                </td>
+              </tr>
+              
+              <tr>
+                <td>130</td>
+                <td><audio controls src="/assets/prior_m2/real_audio/real_mix_130.wav"></audio></td>
+                <td>
+                  
+                    <audio controls src="/assets/prior_m2/generated_aligned_audio/generated_aligned_mix_130.wav"></audio>
+                  
+                </td>
+              </tr>
+              
+              <tr>
+                <td>356</td>
+                <td><audio controls src="/assets/prior_m2/real_audio/real_mix_356.wav"></audio></td>
+                <td>
+                  
+                    <audio controls src="/assets/prior_m2/generated_aligned_audio/generated_aligned_mix_356.wav"></audio>
+                  
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleSec(id){
+      const sec = document.getElementById(id);
+      const body = sec.querySelector('.sec-body');
+      const icon = sec.querySelector('.toggle');
+      const open = body.style.display !== 'block';
+      body.style.display = open ? 'block' : 'none';
+      sec.classList.toggle('collapsed', !open);
+      icon.textContent = open ? '▼' : '▶';
+    }
+    function expandAll(){
+      document.querySelectorAll('.section').forEach(sec=>{
+        const body = sec.querySelector('.sec-body');
+        const icon = sec.querySelector('.toggle');
+        body.style.display = 'block';
+        sec.classList.remove('collapsed');
+        icon.textContent = '▼';
+      });
+    }
+    function collapseAll(){
+      document.querySelectorAll('.section').forEach(sec=>{
+        const body = sec.querySelector('.sec-body');
+        const icon = sec.querySelector('.toggle');
+        body.style.display = 'none';
+        sec.classList.add('collapsed');
+        icon.textContent = '▶';
+      });
+    }
+  </script>
+</body>
+</html>

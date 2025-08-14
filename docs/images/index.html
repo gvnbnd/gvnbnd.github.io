@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Decomposition — Images (Ch. 4)</title>
+  <link href="https://cdn.jsdelivr.net/npm/modern-css-reset/reset.min.css" rel="stylesheet">
+  <style>
+    :root { --ink:#0f172a; --muted:#92400e; --brand:#d97706; --note-bg:#fffaf0; --note-border:#f4e7d1; }
+    body { background: #fff7ed; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--ink); }
+    header { background: linear-gradient(180deg,#b45309,#d97706); color: #fff; padding: 1rem; }
+    header .bar { max-width: 900px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; }
+    header h1 { margin:0; font-size:1.3rem; }
+    header a.home { color:#fff; text-decoration:none; background:rgba(255,255,255,.15); padding:.5rem .75rem; border-radius:10px; }
+    header a.home:hover { background:rgba(255,255,255,.25); }
+    main { max-width: 900px; margin: 1.25rem auto 2rem; background: #fff; padding: 1.25rem; border-radius: 14px; box-shadow: 0 8px 18px rgba(15,23,42,0.08); }
+    .notice { background: var(--note-bg); border: 1px solid var(--note-border); border-radius: 12px; padding: .75rem .9rem; margin-bottom: 1rem; color:#7c2d12; }
+
+    .filters { margin-bottom: 16px; display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+    .filters label { color:#7c2d12; }
+    .filters select, .filters button { padding: 6px 8px; border-radius:10px; border:1px solid #f4e7d1; background:#fffaf0; }
+    #global-toggle-img { margin:8px 0 16px; padding: 8px 12px; border-radius:10px; border:1px solid #f4e7d1; background:#fffaf0; }
+    .image-block { margin-bottom: 18px; }
+    .image-title { cursor: pointer; display: flex; align-items: center; color: var(--muted); margin-bottom: 6px; font-weight:600; }
+    .toggle-icon { margin-right: 8px; transition: transform 0.2s; }
+    .collapsed .toggle-icon { transform: rotate(-90deg); }
+    .image-content { display: none; margin-top: 10px; }
+    img { max-width: 100%; border-radius: 10px; box-shadow: 0 6px 14px rgba(0,0,0,0.07); }
+    h2, h3 { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <h1>Decomposition — Images <span class="code">(Ch. 4)</span></h1>
+      <a class="home" href="../index.html">← Home</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice">
+      <strong>Note:</strong> this page shows a small, <em>non-cherry-picked</em> subset of images. More results will be added soon.
+    </div>
+
+    <div class="filters">
+      <label>Space:
+        <select id="filter-space">
+          <option value="">Any</option>
+          <option value="Image space">Image space</option>
+          <option value="Latent space">Latent space</option>
+        </select>
+      </label>
+      <label>Dim:
+        <select id="filter-dim">
+          <option value="">Any</option>
+          <option value="latent dim = 8">8</option>
+          <option value="latent dim = 16">16</option>
+          <option value="latent dim = 32">32</option>
+        </select>
+      </label>
+      <label>Operator:
+        <select id="filter-op">
+          <option value="">Any</option>
+          <option value="Operator = mean">mean</option>
+          <option value="Operator = max">max</option>
+          <option value="Operator = min">min</option>
+          <option value="Operator = sum">sum</option>
+        </select>
+      </label>
+      <label>Objects:
+        <select id="filter-obj">
+          <option value="">Any</option>
+          <option value="2 objects">2 objects</option>
+          <option value="3 objects">3 objects</option>
+        </select>
+      </label>
+      <label>Embeddings:
+        <select id="filter-emb">
+          <option value="">Any</option>
+          <option value="N = 2">2</option>
+          <option value="N = 3">3</option>
+          <option value="N = 4">4</option>
+        </select>
+      </label>
+      <label>Variant:
+        <select id="filter-var">
+          <option value="">Any</option>
+          <option value="Variant = d">d</option>
+          <option value="Variant = c">c</option>
+        </select>
+      </label>
+      <button onclick="applyImageFilters()">Apply</button>
+      <button onclick="clearImageFilters()">Clear</button>
+    </div>
+
+    <button id="global-toggle-img" onclick="toggleAllImages()">Expand All</button>
+
+    
+      <h2>Image Space Results</h2>
+      
+        <h3>Variant = d</h3>
+        
+          <div class="image-block collapsed" data-title="latent dim = 16 | image space | operator = mean | variant = d | 2 objects | n = 4">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 16 | Image space | Operator = mean | Variant = d | 2 objects | N = 4
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld16_vard_latentFalse_emb4_regnone_opmean_490989_img_grid.png" alt="latent dim = 16 | Image space | Operator = mean | Variant = d | 2 objects | N = 4">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld16_vard_latentFalse_emb4_regnone_opmean_490989_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 16 | image space | operator = mean | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 16 | Image space | Operator = mean | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld16_vard_latentTrue_emb2_regnone_opmean_794670_img_grid.png" alt="latent dim = 16 | Image space | Operator = mean | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld16_vard_latentTrue_emb2_regnone_opmean_794670_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 32 | image space | operator = mean | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 32 | Image space | Operator = mean | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld32_vard_latentTrue_emb2_regnone_opmean_15180_im_grid.png" alt="latent dim = 32 | Image space | Operator = mean | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld32_vard_latentTrue_emb2_regnone_opmean_15180_im_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = d | 3 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = d | 3 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_vard_latentFalse_emb2_regnone_opmean_747268_3obj_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = d | 3 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_vard_latentFalse_emb2_regnone_opmean_747268_3obj_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = d | 3 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = d | 3 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_vard_latentFalse_emb3_regnone_opmean_960669_3obj_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = d | 3 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_vard_latentFalse_emb3_regnone_opmean_960669_3obj_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = max | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = max | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_vard_latentTrue_emb2_regnone_opmax_923654_img_grid.png" alt="latent dim = 8 | Image space | Operator = max | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_vard_latentTrue_emb2_regnone_opmax_923654_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_vard_latentTrue_emb2_regnone_opmean_625750_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_vard_latentTrue_emb2_regnone_opmean_625750_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = min | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = min | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_vard_latentTrue_emb2_regnone_opmin_918340_img_grid.png" alt="latent dim = 8 | Image space | Operator = min | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_vard_latentTrue_emb2_regnone_opmin_918340_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = d | 2 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = d | 2 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_vard_latentTrue_emb3_regnone_opmean_491551_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = d | 2 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_vard_latentTrue_emb3_regnone_opmean_491551_img_grid.png</div>
+            </div>
+          </div>
+        
+      
+        <h3>Variant = c</h3>
+        
+          <div class="image-block collapsed" data-title="latent dim = 16 | image space | operator = mean | variant = c | 2 objects | n = 4">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 16 | Image space | Operator = mean | Variant = c | 2 objects | N = 4
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld16_varc_latentFalse_emb4_regnone_opmean_966877_img_grid.png" alt="latent dim = 16 | Image space | Operator = mean | Variant = c | 2 objects | N = 4">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld16_varc_latentFalse_emb4_regnone_opmean_966877_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = c | 3 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = c | 3 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_varc_latentFalse_emb2_regnone_opmean_14317_3obj_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = c | 3 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_varc_latentFalse_emb2_regnone_opmean_14317_3obj_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = c | 3 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = c | 3 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_varc_latentFalse_emb2_regnone_opmean_465147_3obj_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = c | 3 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_varc_latentFalse_emb2_regnone_opmean_465147_3obj_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = c | 3 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = c | 3 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_varc_latentFalse_emb3_regnone_opmean_686781_3obj_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = c | 3 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_varc_latentFalse_emb3_regnone_opmean_686781_3obj_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = c | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = c | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_varc_latentTrue_emb2_regnone_opmean_503464_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = c | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_varc_latentTrue_emb2_regnone_opmean_503464_img_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | image space | operator = mean | variant = c | 2 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Image space | Operator = mean | Variant = c | 2 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld8_varc_latentTrue_emb3_regnone_opmean_998868_img_grid.png" alt="latent dim = 8 | Image space | Operator = mean | Variant = c | 2 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld8_varc_latentTrue_emb3_regnone_opmean_998868_img_grid.png</div>
+            </div>
+          </div>
+        
+      
+    
+      <h2>Latent Space Results</h2>
+      
+        <h3>Variant = d</h3>
+        
+          <div class="image-block collapsed" data-title="latent dim = 16 | latent space | operator = mean | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 16 | Latent space | Operator = mean | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_16_var_d_latent_True_emb_2_reg_none_op_mean_518045_grid.png" alt="latent dim = 16 | Latent space | Operator = mean | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_16_var_d_latent_True_emb_2_reg_none_op_mean_518045_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 32 | latent space | operator = mean | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 32 | Latent space | Operator = mean | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_32_var_d_latent_True_emb_2_reg_none_op_mean_385955_grid.png" alt="latent dim = 32 | Latent space | Operator = mean | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_32_var_d_latent_True_emb_2_reg_none_op_mean_385955_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = max | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = max | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_max_49919_grid.png" alt="latent dim = 8 | Latent space | Operator = max | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_max_49919_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_mean_295408_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_mean_295408_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = d | 3 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = d | 3 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_mean_957212_3ob_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = d | 3 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_mean_957212_3ob_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = min | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = min | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_min_309866_grid.png" alt="latent dim = 8 | Latent space | Operator = min | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_min_309866_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = sum | variant = d | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = sum | Variant = d | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_sum_680731_grid.png" alt="latent dim = 8 | Latent space | Operator = sum | Variant = d | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_d_latent_True_emb_2_reg_none_op_sum_680731_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = d | 2 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = d | 2 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_d_latent_True_emb_3_reg_none_op_mean_544243_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = d | 2 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_d_latent_True_emb_3_reg_none_op_mean_544243_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = d | 3 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = d | 3 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_d_latent_True_emb_3_reg_none_op_mean_992613_3ob_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = d | 3 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_d_latent_True_emb_3_reg_none_op_mean_992613_3ob_grid.png</div>
+            </div>
+          </div>
+        
+      
+        <h3>Variant = c</h3>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = c | 3 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = c | 3 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_c_latent_True_emb_2_reg_none_op_mean_31717_3ob_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = c | 3 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_c_latent_True_emb_2_reg_none_op_mean_31717_3ob_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = c | 2 objects | n = 2">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = c | 2 objects | N = 2
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_c_latent_True_emb_2_reg_none_op_mean_9564_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = c | 2 objects | N = 2">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_c_latent_True_emb_2_reg_none_op_mean_9564_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = c | 3 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = c | 3 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_c_latent_True_emb_3_reg_none_op_mean_438753_3ob_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = c | 3 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_c_latent_True_emb_3_reg_none_op_mean_438753_3ob_grid.png</div>
+            </div>
+          </div>
+        
+          <div class="image-block collapsed" data-title="latent dim = 8 | latent space | operator = mean | variant = c | 2 objects | n = 3">
+            <div class="image-title" onclick="toggleImage(this)">
+              <span class="toggle-icon">▶</span> latent dim = 8 | Latent space | Operator = mean | Variant = c | 2 objects | N = 3
+            </div>
+            <div class="image-content">
+              <img src="tetris_ld_8_var_c_latent_True_emb_3_reg_none_op_mean_95560_grid.png" alt="latent dim = 8 | Latent space | Operator = mean | Variant = c | 2 objects | N = 3">
+              <div class="filename-caption" style="color:#7c2d12; margin-top:.35rem;">tetris_ld_8_var_c_latent_True_emb_3_reg_none_op_mean_95560_grid.png</div>
+            </div>
+          </div>
+        
+      
+    
+  </main>
+
+  <script>
+    function toggleImage(el){const b=el.parentElement,c=el.nextElementSibling,i=el.querySelector('.toggle-icon');const show=c.style.display!=='block';c.style.display=show?'block':'none';b.classList.toggle('collapsed',!show);i.textContent=show?'▼':'▶';}
+    let imgAll=false;
+    function toggleAllImages(){document.querySelectorAll('.image-block').forEach(b=>{const c=b.querySelector('.image-content');const i=b.querySelector('.toggle-icon');c.style.display=imgAll?'none':'block';b.classList.toggle('collapsed',imgAll);i.textContent=imgAll?'▶':'▼';});imgAll=!imgAll;document.getElementById('global-toggle-img').textContent=imgAll?'Collapse All':'Expand All';}
+    function applyImageFilters(){const f=[ 'filter-space','filter-dim','filter-op','filter-obj','filter-emb','filter-var' ].map(id=>document.getElementById(id).value).filter(Boolean);document.querySelectorAll('.image-block').forEach(b=>{const t=b.dataset.title;b.style.display=f.every(v=>t.includes(v.toLowerCase()))?'':'none';});}
+    function clearImageFilters(){['filter-space','filter-dim','filter-op','filter-obj','filter-emb','filter-var'].forEach(id=>document.getElementById(id).value='');document.querySelectorAll('.image-block').forEach(b=>b.style.display='');}
+  </script>
+</body>
+</html>
